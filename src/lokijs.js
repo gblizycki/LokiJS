@@ -256,6 +256,16 @@
 
           return checkFn(curr);
         }, true);
+      },
+			$exists:function(a,b){
+        if(b)
+        {
+          return (typeof a !== "undefined" && a !== null);
+        }
+        else
+        {
+          return (typeof a === "undefined" || a === null);
+        }
       }
     };
 
@@ -272,7 +282,8 @@
       '$nin': LokiOps.$nin,
       '$contains': LokiOps.$contains,
       '$containsAny': LokiOps.$containsAny,
-      '$containsNone': LokiOps.$containsNone
+      '$containsNone': LokiOps.$containsNone,
+      '$exits': LokiOps.$exits
     };
 
     // making indexing opt-in... our range function knows how to deal with these ops :
